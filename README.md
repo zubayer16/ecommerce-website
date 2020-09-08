@@ -1,2 +1,2 @@
 # ecommerce-website
-An E-commerce website that I built using Django(a python based web framework).
+An E-commerce website built using Django(a python based web framework).
