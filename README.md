@@ -1,4 +1,4 @@
-# ecommerce-website
+# E-commerce Website
 I have created this project using Django(a python based web framework). It follows MTV pattern which is an extension of MVC pattern.
 
 MTV(Model-Template-View) Pattern
