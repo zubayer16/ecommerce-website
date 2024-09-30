@@ -4,6 +4,12 @@ import json
 import datetime
 from .models import *
 
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 # Create your views here.
 def store(request):
@@ -21,6 +27,20 @@ def store(request):
 	context={'products':products, 'cartItems':cartItems}
 	return render(request, 'store/store.html', context)
 
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('home')  # Replace with the name of your home view
+        else:
+            messages.error(request, 'Invalid username or password.')
+    
+    return render(request, 'login.html')
 
 def cart(request):
 
@@ -49,6 +69,7 @@ def checkout(request):
 	context = {'items':items, 'order':order,'cartItems':cartItems}
 	return render(request, 'store/checkout.html', context)
 
+@login_required
 def updateItem(request):
 	data = json.loads(request.body)
 	productId = data['productId']

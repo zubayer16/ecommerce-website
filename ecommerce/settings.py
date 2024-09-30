@@ -39,6 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store.apps.StoreConfig',
 ]
+# Redirect to home page after login
+LOGIN_REDIRECT_URL = 'store'
+
+# Redirect to login page if not authenticated
+LOGIN_URL = 'login'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
