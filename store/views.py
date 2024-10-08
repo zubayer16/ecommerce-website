@@ -3,6 +3,7 @@ from django.http import JsonResponse
 import json
 import datetime
 from .models import *
+from .models import Product
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -26,6 +27,24 @@ def store(request):
 	products=Product.objects.all()
 	context={'products':products, 'cartItems':cartItems}
 	return render(request, 'store/store.html', context)
+#view the product
+
+
+def product_detail(request, product_id):
+    try:
+        product = Product.objects.get(id=product_id)
+        data = {
+            'name': product.name,
+            'price': float(product.price),
+            'imageURL': product.imageURL,  # Use the imageURL property
+        }
+        return JsonResponse(data)
+    except Product.DoesNotExist:
+        return JsonResponse({'error': 'Product not found'}, status=404)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)  # Catch all other exceptions
+
+
 
 def login_view(request):
     if request.method == 'POST':
