@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Categories</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <style>
+        .category-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Categories</h1>
+    <p>Browse through various categories.</p>
+    
+    <div class="row">
+        <!-- Category 1: Clothes -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/clothes.jpg' %}" class="card-img-top" alt="Clothes">
+                <div class="card-body">
+                    <h5 class="card-title">Clothes</h5>
+                    <p class="card-text">Explore the latest fashion and clothing trends.</p>
+                    <a href="#" class="btn btn-primary">Shop Clothes</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 2: Electronics -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/electronics.jpg' %}" class="card-img-top" alt="Electronics">
+                <div class="card-body">
+                    <h5 class="card-title">Electronics</h5>
+                    <p class="card-text">Find the best deals on electronics and gadgets.</p>
+                    <a href="#" class="btn btn-primary">Shop Electronics</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 3: Home & Garden -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/home_garden.jpg' %}" class="card-img-top" alt="Home & Garden">
+                <div class="card-body">
+                    <h5 class="card-title">Home & Garden</h5>
+                    <p class="card-text">Upgrade your home and garden with the best products.</p>
+                    <a href="#" class="btn btn-primary">Shop Home & Garden</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 4: Accessories -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/accessories.jpg' %}" class="card-img-top" alt="Accessories">
+                <div class="card-body">
+                    <h5 class="card-title">Accessories</h5>
+                    <p class="card-text">Discover the latest accessories to complement your style.</p>
+                    <a href="#" class="btn btn-primary">Shop Accessories</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 5: Books -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/books.jpg' %}" class="card-img-top" alt="Books">
+                <div class="card-body">
+                    <h5 class="card-title">Books</h5>
+                    <p class="card-text">Browse a wide collection of books and literature.</p>
+                    <a href="#" class="btn btn-primary">Shop Books</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 6: Sports -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/sports.jpg' %}" class="card-img-top" alt="Sports">
+                <div class="card-body">
+                    <h5 class="card-title">Sports</h5>
+                    <p class="card-text">Find sports gear and accessories for all your activities.</p>
+                    <a href="#" class="btn btn-primary">Shop Sports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

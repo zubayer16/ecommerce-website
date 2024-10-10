@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Social Media</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <style>
+        .social-card img {
+            height: 100px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Social Media</h1>
+    <p>Connect with us on social media.</p>
+    
+    <div class="row">
+        <!-- Social Media 1: Facebook -->
+        <div class="col-md-4">
+            <div class="card social-card mb-4 text-center">
+                <img src="{% static 'images/facebook.png' %}" class="card-img-top mx-auto mt-3" alt="Facebook">
+                <div class="card-body">
+                    <h5 class="card-title">Facebook</h5>
+                    <p class="card-text">Follow us on Facebook for the latest updates.</p>
+                    <a href="https://www.facebook.com" class="btn btn-primary" target="_blank">Visit Facebook</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media 2: Twitter -->
+        <div class="col-md-4">
+            <div class="card social-card mb-4 text-center">
+                <img src="{% static 'images/twitter.png' %}" class="card-img-top mx-auto mt-3" alt="Twitter">
+                <div class="card-body">
+                    <h5 class="card-title">Twitter</h5>
+                    <p class="card-text">Stay connected with our latest tweets.</p>
+                    <a href="https://www.twitter.com" class="btn btn-primary" target="_blank">Visit Twitter</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media 3: Instagram -->
+        <div class="col-md-4">
+            <div class="card social-card mb-4 text-center">
+                <img src="{% static 'images/instagram.png' %}" class="card-img-top mx-auto mt-3" alt="Instagram">
+                <div class="card-body">
+                    <h5 class="card-title">Instagram</h5>
+                    <p class="card-text">Follow our Instagram for the latest photos and stories.</p>
+                    <a href="https://www.instagram.com" class="btn btn-primary" target="_blank">Visit Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media 4: LinkedIn -->
+        <div class="col-md-4">
+            <div class="card social-card mb-4 text-center">
+                <img src="{% static 'images/linkedin.png' %}" class="card-img-top mx-auto mt-3" alt="LinkedIn">
+                <div class="card-body">
+                    <h5 class="card-title">LinkedIn</h5>
+                    <p class="card-text">Connect with us on LinkedIn for professional updates.</p>
+                    <a href="https://www.linkedin.com" class="btn btn-primary" target="_blank">Visit LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media 5: YouTube -->
+        <div class="col-md-4">
+            <div class="card social-card mb-4 text-center">
+                <img src="{% static 'images/youtube.png' %}" class="card-img-top mx-auto mt-3" alt="YouTube">
+                <div class="card-body">
+                    <h5 class="card-title">YouTube</h5>
+                    <p class="card-text">Watch our latest videos on YouTube.</p>
+                    <a href="https://www.youtube.com" class="btn btn-primary" target="_blank">Visit YouTube</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

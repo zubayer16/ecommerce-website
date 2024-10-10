@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Fashion Trends</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <style>
+        .category-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Fashion Trends</h1>
+    <p>Latest fashion trends this season.</p>
+    
+    <div class="row">
+        <!-- Category 1: Newspaper -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/newspaper.jpg' %}" class="card-img-top" alt="Newspaper">
+                <div class="card-body">
+                    <h5 class="card-title">Newspaper</h5>
+                    <p class="card-text">Stay up-to-date with the latest news and current events.</p>
+                    <a href="#" class="btn btn-primary">Read Newspaper</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 2: News Magazines -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/news_magazines.jpg' %}" class="card-img-top" alt="News Magazines">
+                <div class="card-body">
+                    <h5 class="card-title">News Magazines</h5>
+                    <p class="card-text">Explore in-depth articles and analyses from top magazines.</p>
+                    <a href="#" class="btn btn-primary">Browse Magazines</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 3: Fashion Blogs -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/fashion_blog.jpg' %}" class="card-img-top" alt="Fashion Blog">
+                <div class="card-body">
+                    <h5 class="card-title">Fashion Blogs</h5>
+                    <p class="card-text">Get the latest tips and trends from popular fashion bloggers.</p>
+                    <a href="#" class="btn btn-primary">Read Blogs</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category 4: Fashion Shows -->
+        <div class="col-md-4">
+            <div class="card category-card mb-4">
+                <img src="{% static 'images/fashion_show.jpg' %}" class="card-img-top" alt="Fashion Show">
+                <div class="card-body">
+                    <h5 class="card-title">Fashion Shows</h5>
+                    <p class="card-text">Catch up on the latest fashion shows and runway events.</p>
+                    <a href="#" class="btn btn-primary">View Shows</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

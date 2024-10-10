@@ -10,4 +10,10 @@ urlpatterns = [
     path('process_order/', views.processOrder, name="process_order"),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 
+    # New routes for additional pages
+    path('profile/', views.profile, name="profile"),
+    path('categories/', views.categories, name="categories"),
+    path('trends/', views.trends, name="trends"),
+    path('social/', views.social, name="social"),
+    path('about/', views.about, name="about"),
 ]
