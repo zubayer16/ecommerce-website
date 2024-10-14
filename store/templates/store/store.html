@@ -1,21 +1,45 @@
 {% extends 'store/main.html' %}
 {% load static %}
-{% block content %}
-	<div class="row">
-		{% for product in products %}
-		<div class="col-lg-4">
-			<img class="thumbnail" src={{product.imageURL}}>
-			<div class="box-element product">
-				<h6><strong>{{product.name}}</strong></h6>
-				<hr>
-				<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-				<a class="btn btn-outline-success"href="#">View</a>
-				<h4 style="display: inline-block;float: right;">৳{{product.price|floatformat:2}}</h4>
-			</div>
-			
-		</div>
-		{% endfor %}
 
-		
-	</div>
+{% block content %}
+<div class="row">
+    {% for product in products %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{ product.imageURL }}">
+        <div class="box-element product">
+            <h6><strong>{{ product.name }}</strong></h6>
+            <hr>
+            <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+            <button class="btn btn-outline-success view-btn" data-toggle="modal" data-target="#productModal" data-product-id="{{ product.id }}">View</button>
+            <h4 style="display: inline-block; float: right;">৳{{ product.price|floatformat:2 }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-product-image" src="" alt="Product Image" class="img-fluid">
+                <h6><strong id="modal-product-name"></strong></h6>
+                <p id="modal-product-description"></p>
+                <h4 id="modal-product-price"></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Link the JavaScript file -->
+<script src="{% static 'js/productView.js' %}"></script>
 {% endblock content %}

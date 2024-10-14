@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from .models import Product
 
 
 # Existing views...
@@ -54,6 +55,19 @@ def cart(request):
         cartItems = order['get_cart_items']
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/cart.html', context)
+def product_detail(request, product_id):
+    try:
+        product = Product.objects.get(id=product_id)
+        data = {
+            'name': product.name,
+            'price': float(product.price),
+            'imageURL': product.imageURL,  # Use the imageURL property
+        }
+        return JsonResponse(data)
+    except Product.DoesNotExist:
+        return JsonResponse({'error': 'Product not found'}, status=404)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)  # Catch all other exceptions
 
 def checkout(request):
     if request.user.is_authenticated:
