@@ -1,5 +1,6 @@
-from django.urls import path
+
 from . import views
+from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import product_detail
 
@@ -18,4 +19,5 @@ urlpatterns = [
     path('trends/', views.trends, name="trends"),
     path('social/', views.social, name="social"),
     path('about/', views.about, name="about"),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]
