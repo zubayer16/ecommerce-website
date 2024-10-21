@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-    <title>Social Media</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <style>
-        .social-card img {
-            height: 100px;
-            object-fit: contain;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% load static %}  <!-- Load static files -->
+
+{% block title %}Social Media{% endblock title %}
+
+{% block content %}
 <div class="container mt-5">
     <h1 class="mb-4">Social Media</h1>
     <p>Connect with us on social media.</p>
@@ -79,5 +71,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}

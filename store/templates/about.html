@@ -1,48 +1,34 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-    <title>About Us</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <style>
-        .about-section {
-            background-color: #f8f9fa;
-            padding: 40px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .feature-card {
-            background-color: #fff;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .feature-card img {
-            height: 150px;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
-<div class="container mt-5">
-    <h1 class="mb-4">About Us</h1>
-    <div class="about-section">
-        <h3>Welcome to Our Website</h3>
-        <p>We are dedicated to bringing you the best online shopping experience. Our website offers a wide range of products, including fashion, electronics, home and garden, books, and much more. Our goal is to provide quality products at affordable prices, with excellent customer service.</p>
-    </div>
+{% extends 'base.html' %}
 
-    <div class="about-section">
+{% load static %}  <!-- Load static for any static files -->
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">About Us</h1>
+    
+    <!-- Welcome Section -->
+    <div class="about-section bg-light p-4 rounded">
+        <h3>Welcome to Our Website</h3>
+        <p>
+            We are committed to providing you with the best online shopping experience. Our platform offers a wide range of products across different categories like fashion, electronics, home & garden, books, and more. Our goal is to provide high-quality products at competitive prices with unmatched customer service.
+        </p>
         <h3>Our Mission</h3>
         <p>To become the leading online platform that connects customers with the products they need, while offering a seamless shopping experience. We aim to continually improve and provide new features that cater to the needs of our users.</p>
     </div>
 
-    <div class="about-section">
+    <!-- Mission Section -->
+
+
+    <!-- What We Offer Section with Cards -->
+    <div class="about-section mt-5">
         <h3>What We Offer</h3>
         <p>Explore the variety of products and services we provide:</p>
         <div class="row">
+            <!-- Fashion Card -->
             <div class="col-md-4">
-                <div class="card feature-card mb-4">
+                <div class="card mb-4 shadow-sm">
                     <img src="{% static 'images/fashion.jpg' %}" class="card-img-top" alt="Fashion">
                     <div class="card-body">
                         <h5 class="card-title">Fashion</h5>
@@ -50,8 +36,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Electronics Card -->
             <div class="col-md-4">
-                <div class="card feature-card mb-4">
+                <div class="card mb-4 shadow-sm">
                     <img src="{% static 'images/electronics.jpg' %}" class="card-img-top" alt="Electronics">
                     <div class="card-body">
                         <h5 class="card-title">Electronics</h5>
@@ -59,8 +46,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Home & Garden Card -->
             <div class="col-md-4">
-                <div class="card feature-card mb-4">
+                <div class="card mb-4 shadow-sm">
                     <img src="{% static 'images/home_garden.jpg' %}" class="card-img-top" alt="Home & Garden">
                     <div class="card-body">
                         <h5 class="card-title">Home & Garden</h5>
@@ -68,8 +56,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Books Card -->
             <div class="col-md-4">
-                <div class="card feature-card mb-4">
+                <div class="card mb-4 shadow-sm">
                     <img src="{% static 'images/books.jpg' %}" class="card-img-top" alt="Books">
                     <div class="card-body">
                         <h5 class="card-title">Books</h5>
@@ -77,8 +66,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Sports Card -->
             <div class="col-md-4">
-                <div class="card feature-card mb-4">
+                <div class="card mb-4 shadow-sm">
                     <img src="{% static 'images/sports.jpg' %}" class="card-img-top" alt="Sports">
                     <div class="card-body">
                         <h5 class="card-title">Sports</h5>
@@ -86,8 +76,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Accessories Card -->
             <div class="col-md-4">
-                <div class="card feature-card mb-4">
+                <div class="card mb-4 shadow-sm">
                     <img src="{% static 'images/accessories.jpg' %}" class="card-img-top" alt="Accessories">
                     <div class="card-body">
                         <h5 class="card-title">Accessories</h5>
@@ -98,10 +89,10 @@
         </div>
     </div>
 
-    <div class="about-section">
+    <!-- Contact Section -->
+    <div class="about-section contact-section mt-5">
         <h3>Contact Us</h3>
         <p>If you have any questions or need help, feel free to <a href="#">contact us</a>. We are here to assist you with any inquiries.</p>
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}
