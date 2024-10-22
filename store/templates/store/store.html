@@ -2,22 +2,32 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
-    {% for product in products %}
-    <div class="col-lg-4">
-        <img class="thumbnail" src="{{ product.imageURL }}">
-        <div class="box-element product">
-            <h6><strong>{{ product.name }}</strong></h6>
-            <hr>
-            <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-            <button class="btn btn-outline-success view-btn" data-toggle="modal" data-target="#productModal" data-product-id="{{ product.id }}">View</button>
-            <h4 style="display: inline-block; float: right;">৳{{ product.price|floatformat:2 }}</h4>
+<div class="container my-4">
+    <div class="row text-center">
+        <div class="col">
+            <h1 class="display-4 font-weight-bold">Welcome to Ecom</h1>
+            <p class="lead text-muted">Explore our latest collections!</p>
         </div>
     </div>
-    {% endfor %}
+    
+    <div class="row mt-5">
+        {% for product in products %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow-sm h-100 border-0 rounded">
+                <img class="card-img-top img-fluid p-3" src="{{ product.imageURL }}" alt="{{ product.name }}" style="object-fit: cover; height: 250px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title font-weight-bold text-dark">{{ product.name }}</h5>
+                    <p class="text-muted mb-2">৳{{ product.price|floatformat:2 }}</p>
+                    <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-primary btn-sm add-btn update-cart mr-2">Add to Cart</button>
+                    <button class="btn btn-outline-info btn-sm view-btn" data-toggle="modal" data-target="#productModal" data-product-id="{{ product.id }}">View Details</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal for Product Details -->
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -28,10 +38,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img id="modal-product-image" src="" alt="Product Image" class="img-fluid">
-                <h6><strong id="modal-product-name"></strong></h6>
-                <p id="modal-product-description"></p>
-                <h4 id="modal-product-price"></h4>
+                <img id="modal-product-image" src="" alt="Product Image" class="img-fluid mb-3" style="max-height: 300px; object-fit: cover;">
+                <h5 id="modal-product-name" class="font-weight-bold text-dark"></h5>
+                <p id="modal-product-description" class="text-muted"></p>
+                <h4 id="modal-product-price" class="text-primary"></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -40,6 +50,6 @@
     </div>
 </div>
 
-<!-- Link the JavaScript file -->
+<!-- Include custom JavaScript -->
 <script src="{% static 'js/productView.js' %}"></script>
 {% endblock content %}

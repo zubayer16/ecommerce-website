@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+{% extends 'store/main.html' %}
 {% load static %}
-<html>
+
+{% block content %}
 <head>
     <title>Social Media</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -15,7 +16,7 @@
 <body>
 <div class="container mt-5">
     <h1 class="mb-4">Social Media</h1>
-    <p>Connect with us on social media.</p>
+    <p class = "sub-title">Connect with us on social media.</p>
     
     <div class="row">
         <!-- Social Media 1: Facebook -->
@@ -80,4 +81,4 @@
     </div>
 </div>
 </body>
-</html>
+{% endblock content %}

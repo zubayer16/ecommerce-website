@@ -1,12 +1,7 @@
-<!DOCTYPE html>
+{% extends 'store/main.html' %}
 {% load static %}
-<html>
-<head>
-    <title>My Profile</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-</head>
-<body>
+
+{% block content %}
 <div class="container mt-5">
     <h1>My Profile</h1>
     <p class="lead">Welcome, {{ user.username }}!</p>
@@ -25,5 +20,4 @@
         <a href="{% url 'store' %}" class="btn btn-primary">Back to Store</a>
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}

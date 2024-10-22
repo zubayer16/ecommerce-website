@@ -1,54 +1,93 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Login | Ecom</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login | Ecom</title>
 
-        <!-- Load the static template tag -->
-        {% load static %}
+    <!-- Load the static template tag -->
+    {% load static %}
 
-        <!-- Include Bootstrap 4 CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-        
-        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-    </head>
-    <body>
-        <div class="container login-container">
-            <div class="login-box col-md-4">
-                <h2 class="login-title text-center">Login to Your Account</h2>
-                
-                <form method="POST" action="{% url 'login' %}">
-                    {% csrf_token %}
-                    <!-- Username Input -->
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+    <!-- Include Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <!-- Navbar from main HTML -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/profile/">My Profile</a>
+                        <a class="dropdown-item" href="/categories/">Categories</a>
+                        <a class="dropdown-item" href="/trends/">Fashion Trends</a>
+                        <a class="dropdown-item" href="/social/">Social Media</a>
+                        <a class="dropdown-item" href="/about/">About Us</a>
                     </div>
+                </li>
+            </ul>
 
-                    <!-- Password Input -->
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
-                    </div>
-
-                    <!-- Login Button -->
-                    <button type="submit" class="btn btn-custom btn-block">Login</button>
-                </form>
-
-                <!-- Optional Links -->
-                <div class="text-center mt-4">
-                    <p><a href="#">Forgot your password?</a></p>
-                    <p>Don't have an account? <a href="#">Sign up</a></p>
-                </div>
+            <div class="form-inline my-2 my-lg-0">
+                {% if user.is_authenticated %}
+                    <span class="navbar-text mr-3">Welcome, {{ user.username }}!</span>
+                    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-warning">Login</a>
+                {% endif %}
+                <a href="{% url 'cart' %}" class="btn btn-outline-light position-relative ml-3">
+                    <img id="cart-icon" src="{% static 'images/6+cart.png' %}" alt="Cart">
+                    <span id="cart-total" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ cartItems }}</span>
+                </a>
             </div>
         </div>
+    </nav>
 
-        <!-- Bootstrap JS and dependencies -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    </body>
+    <div class="container login-container">
+        <div class="login-box col-md-4">
+            <h2 class="login-title text-center">Login to Your Account</h2>
+            
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <!-- Username Input -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn btn-custom btn-block">Login</button>
+            </form>
+
+            <!-- Optional Links -->
+            <div class="text-center mt-4">
+                <p><a href="#">Forgot your password?</a></p>
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
 </html>

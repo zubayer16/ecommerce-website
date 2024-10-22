@@ -1,21 +1,10 @@
-<!DOCTYPE html>
+{% extends 'store/main.html' %}
 {% load static %}
-<html>
-<head>
-    <title>Categories</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <style>
-        .category-card img {
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
+
+{% block content %}
 <div class="container mt-5">
     <h1 class="mb-4">Categories</h1>
-    <p>Browse through various categories.</p>
+    <p class = "sub-title">Browse through various categories.</p>
     
     <div class="row">
         <!-- Category 1: Clothes -->
@@ -91,5 +80,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}
