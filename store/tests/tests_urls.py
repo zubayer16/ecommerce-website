@@ -8,6 +8,6 @@ class TestUrls(SimpleTestCase):
 	def test_store_url_is_resolved(self):
 		url = reverse('store')
 		print(resolve(url))
-		self.assertEquals(resolve(url).func,store)
+		self.assertEqual(resolve(url).func,store)
 
 

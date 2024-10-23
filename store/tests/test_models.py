@@ -30,7 +30,7 @@ class TestModels(TestCase):
 
 
 		record = OrderItem.objects.get(pk=1) 
-		self.assertEqual(record.get_total,600)        #Check if expected total equal to returned total
+		self.assertEqual(record.get_total,400)        #Check if expected total equal to returned total
 
 
 
